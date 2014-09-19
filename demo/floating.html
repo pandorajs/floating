@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Share</title>
+    <style type="text/css">
+    body {
+        font-size: 18px;
+    }
+    .mg {
+        height: 960px;
+        width: 400px;
+        border: 1px solid #ddd;
+        margin: 10px
+    }
+    .red {
+        color: red;
+    }
+    .active {
+        color: red;
+        font-size: 24px
+    }
+    </style>
+</head>
+
+<body>
+
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/seajs/sea.js"></script>
+    <script src="../vendor/seajs/seajs-text.js"></script>
+    <script>
+    seajs.config({
+        'base': '../sea-modules/',
+        'map': [
+            ['/sea-modules/jquery', '/vendor/jquery/jquery']
+        ],
+        'alias': {
+            '$': 'jquery',
+            'widget': 'pandora/widget/1.0.0/widget',
+            'base': 'pandora/base/1.0.0/base'
+        }
+    });
+
+    seajs.use(['../src/floating'], function(Floating) {
+
+        'use strict';
+
+        new Floating({
+            contentWidth: 980,
+            element: '#pos',
+            vertical: 'bottom',
+            middleOffset: -300,
+            useAnchor: true,
+            horizontal: 'center',
+            offset: {
+                x: 10,
+                y: 10
+            },
+            events: {
+                all: function(events, dom) {
+                    console.log(events.type + (dom ? dom.attr('id') : ''));
+                }
+            },
+            topHide: true
+        });
+
+    });
+    </script>
+
+
+    <div id="pos" style="width:80%; height:360px; border:1px solid #333">
+
+
+        <span data-role="close">关闭</span>
+
+        <span data-role="goTop">去顶部</span>
+
+        <a href="#a1">aaaaaaaaaaaaa1</a>
+        <a href="#a2">aaaaaaaaaaaaa2</a>
+        <a href="#a3">aaaaaaaaaaaaa3</a>
+        <a href="#a4">aaaaaaaaaaaaa4</a>
+        <a href="#a5">aaaaaaaaaaaaa5</a>
+        <a href="#a6">aaaaaaaaaaaaa6</a>
+
+    </div>
+
+
+    <div style="width:980px; height:2360px; border:1px solid #ccc; margin : 0px auto"></div>
+
+    <p id="a1" class="mg">ddddddddddddddddd1</p>
+    <p id="a2" class="mg red">ddddddddddddddddd2</p>
+    <p id="a3" class="mg">ddddddddddddddddd3</p>
+    <p id="a4" class="mg">ddddddddddddddddd4</p>
+    <p id="a5" class="mg red">ddddddddddddddddd5</p>
+    <p id="a6" class="mg">ddddddddddddddddd6</p>
+
+</body>
+
+</html>
