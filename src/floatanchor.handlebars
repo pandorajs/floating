@@ -1,0 +1,8 @@
+<ul class="anchor-list">
+  {{#each anchors}}
+    <li class="anchor-item"> <a class="anchor-title" href="#{{id}}">{{title}}</a></li>
+  {{/each}}
+  {{#if gotoTop}}
+    <li class="anchor-item" data-role="goTop"> <a class="anchor-title" href="javascript:;">{{topText}}</a></li>
+  {{/if}}
+</ul>

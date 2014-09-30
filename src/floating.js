@@ -77,11 +77,21 @@ define(function(require, exports, module) {
 
             /**
              * 锚点进入视图后，浮层上的导航要应用的样式名
-             * @attribute enterClass
+             * @attribute activeClass
              * @default 'active'
              * @type {String}
              */
-            enterClass: 'active',
+            activeClass: 'active',
+
+            /**
+             * 中间线偏移设置
+             * @attribute middleOffset
+             * @default 0
+             * @type {Number}
+             */
+            middleOffset : 0,
+
+            classPrefix: 'ue-floating',
 
             delegates: {
                 'click [data-role=close]': function() {
@@ -188,7 +198,7 @@ define(function(require, exports, module) {
             var self = this;
             var anchorMap = self.anchorMap = {};
             var anchorList = [];
-            var enterClass = self.option('enterClass');
+            var activeClass = self.option('activeClass');
             var topHide = self.option('topHide');
 
             if (self.option('useAnchor')) {
@@ -217,11 +227,11 @@ define(function(require, exports, module) {
                     },
                     enterMiddle: function(event, $item) {
                         var id = $item.attr('id');
-                        anchorMap[id] && anchorMap[id].addClass(enterClass);
+                        anchorMap[id] && anchorMap[id].addClass(activeClass);
                     },
                     exitMiddle: function(event, $item) {
                         var id = $item.attr('id');
-                        anchorMap[id] && anchorMap[id].removeClass(enterClass);
+                        anchorMap[id] && anchorMap[id].removeClass(activeClass);
                     },
                     getToTop: function() {
                         topHide && self.hide();

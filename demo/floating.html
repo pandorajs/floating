@@ -42,17 +42,17 @@
         }
     });
 
-    seajs.use(['../src/floating'], function(Floating) {
+    seajs.use(['../src/floating','../src/floating','../src/floating'], function(Floating,Floating2,Floating3) {
 
         'use strict';
 
         new Floating({
             contentWidth: 980,
             element: '#pos',
-            vertical: 'bottom',
-            middleOffset: -300,
+            vertical: 'middle',
+            //middleOffset: -300,
             useAnchor: true,
-            horizontal: 'center',
+            horizontal: 'right',
             offset: {
                 x: 10,
                 y: 10
@@ -61,15 +61,15 @@
                 all: function(events, dom) {
                     console.log(events.type + (dom ? dom.attr('id') : ''));
                 }
-            },
-            topHide: true
+            }
+            //topHide: true
         });
 
     });
     </script>
 
 
-    <div id="pos" style="width:80%; height:360px; border:1px solid #333">
+    <div id="pos" style="width:100px; height:250px; border:1px solid #333">
 
 
         <span data-role="close">关闭</span>
