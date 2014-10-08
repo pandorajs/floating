@@ -135,7 +135,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '.build/',
-          src: ['floating*.js', '!-debug*.js'],
+          src: ['floating.js', 'floating-debug.js', 'floatanchor.js','floatanchor-debug.js'],
           dest: 'dist/'
         }]
       }

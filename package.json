@@ -45,7 +45,7 @@
   },
   "family": "pandora",
   "spm": {
-    "output": [ "floating.js" ],
+    "output": [ "floating.js","floatanchor.js" ],
     "alias": {
       "$": "$",
       "base": "pandora/base/1.0.0/base",
